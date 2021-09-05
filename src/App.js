@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-
+import './App.css';
 import { Form, Button , Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -68,30 +68,33 @@ console.log(this.state.lat);
 
     return (
 
+<>
+      <body className="body">
+      <header className="Head">City Explorer </header>
 
-
-      <>
-
-        <Form onSubmit={this.getdata}>
+        <Form className="Form" onSubmit={this.getdata}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Enter placeName</Form.Label>
-            <Form.Control name="location" type="text" placeholder="Enter placeName" />
+            <Form.Control id="control"  name="location" type="text" placeholder="Enter placeName" />
 
           </Form.Group>
-          <Button type="submit">
+          <Button  type="submit">
             Explore!
           </Button>
         </Form>
+<h1>Welcome To {this.state.displayName} </h1>
+      <p> {this.state.displayName} is located at {this.state.lat} by  {this.state.lon}</p>
+      {/* <p>Lat : </p>
+      <p>Lon :</p> */}
 
-      <p>Display name : {this.state.displayName}</p>
-      <p>Lat : {this.state.lat}</p>
-      <p>Lon : {this.state.lon}</p>
+      <Image className="image" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_KEY}&center=${this.state.lat},${this.state.lon}&zoom=[1 to 18]`}  fluid />
 
+
+
+      <footer className='footer' >&copy; Rihan Foudeh</footer>      </body>
 
 
       </>
-
-
 
     );
   }
