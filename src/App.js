@@ -11,58 +11,38 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-
       lat: '',
       lon: '',
       displayName: '',
-      mapFlag: false,
       displayErr: false,
-newtext:false,
+      newtext:false,
 
 
     }
   }
 
   getdata = async (event) => {
-
     event.preventDefault();
-
-
     const location = event.target.location.value;
-
-    // console.log(location);
-
-
     const url = `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_KEY}&q=${location}&format=json`
-
-
-
     try {
+
       let getsourse = await axios.get(url);
-
-
-
       this.setState({
-
         lat: getsourse.data[0].lat,
         lon: getsourse.data[0].lon,
         displayName: getsourse.data[0].display_name,
         newtext:true
+        
       })
-      // console.log(this.state.lat);
     }
-
     catch {
       this.setState({
         displayErr: true,
         newtext: false,
       })
     }
-
   }
-
-
-
 
 render() {
 
@@ -88,7 +68,7 @@ render() {
 
         {this.state.displayErr && <p>Error: Status Code: 400, 404, 500</p>}
 
-        {this.state.newtext &&  <Image className="image" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_KEY}&center=${this.state.lat},${this.state.lon}&zoom=[1 to 18]`} fluid />}
+        {this.state.newtext &&  <Image className="image" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_KEY}&center=${this.state.lat},${this.state.lon}&zoom=[1to18]`} fluid />}
 
 
 
