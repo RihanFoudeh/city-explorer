@@ -47,6 +47,7 @@ class App extends React.Component {
       showERR:false,
       cityName:locationName,
     })
+    
 
     // console.log(this.state.lat);
   }
