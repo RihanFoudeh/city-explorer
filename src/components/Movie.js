@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
 import './Movie.css';
 
-class Movie extends Component {
+import React, { Component } from 'react';
 
-    // title={item.title}
-    //         overview={item.overview}
-    //         average_votes={item.average_votes}
-    //         total_votes={item.total_votes}
-    //         image_url={item.image_url}
-    //         popularity={item.popularity}
-    //         released_on={item.released_on}
+class Moviecard extends Component {
     render() {
         return (
             < Card style = {{ width: '18rem' }} className='card'>
@@ -35,9 +28,8 @@ class Movie extends Component {
                         <a href={this.props.image_url} rel='noreferrer' target='_blank'>Full Poster</a>
                     </Card.Body>
                 </Card >
-
         );
     }
 }
 
-export default Movie;
+export default Moviecard;

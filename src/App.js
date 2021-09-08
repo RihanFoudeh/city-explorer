@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Weather from './components/Weather';
-import Movie from './components/Movie';
+import Movie from './components/Movies';
 
 class App extends React.Component {
 
@@ -126,19 +126,11 @@ class App extends React.Component {
 
           />
           <Row className="justify-content-between" className='row'>
-          {this.state.movieData.map(item => {
-            return (
+            
               <Movie
-                title={item.title}
-                overview={item.overview}
-                average_votes={item.average_votes}
-                total_votes={item.total_votes}
-                image_url={item.image_url}
-                popularity={item.popularity}
-                released_on={item.released_on}
+               movieData={this.state.movieData}
               />
-            )
-          })}
+
           </Row>
 
 
